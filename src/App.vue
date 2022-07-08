@@ -1,6 +1,10 @@
 <template>
-  <nav class="p-3 shadow text-center">
-    <router-link to="/">NOTES</router-link>
+  <nav class="p-3 shadow">
+    <router-link to="/" class="logo">NOTES</router-link>
+
+    <router-link to="/notes/new" class="btn btn-primary btn-sm ms-auto">
+      Добавить запись
+    </router-link>
   </nav>
 
   <main>
@@ -13,6 +17,15 @@
 #app {
   nav {
     position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  .logo {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 150%;
   }
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <router-link
   :to="`/notes/${note.id}`"
-  class="note-card p-3 mb-3 shadow rounded-xl"
+  class="note-card mb-3 py-2 shadow rounded-xl"
   >
-    <h2 class="my-2">{{ note.title }}</h2>
+    <h2 class="title px-3 py-2 m-0 w-100">{{ note.title }}</h2>
 
-    <p class="lead my-2">{{ note.description }}</p>
+    <p class="description px-3 py-2 m-0 w-100">{{ note.description }}</p>
 
-    <p class="my-2">{{ note.description }}</p>
+    <p class="text px-3 py-2 m-0 w-100">{{ note.text }}</p>
   </router-link>
 </template>
 

@@ -13,6 +13,11 @@ const routes: Array<RouteRecordRaw> = [
     props: true,
     component: () => import('../views/NoteView.vue'),
   },
+  {
+    path: '/notes/new',
+    name: 'newNote',
+    component: () => import('../views/NewNoteView.vue'),
+  },
 ];
 
 const router = createRouter({

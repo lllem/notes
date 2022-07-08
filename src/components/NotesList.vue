@@ -1,5 +1,5 @@
 <template>
-  <div class="notes-list container py-5 border-top">
+  <div class="notes-list container px-0 py-5 border-top">
 
     <NoteCard
     v-for="note in notes"

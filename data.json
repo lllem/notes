@@ -2,9 +2,9 @@
   "notes":[
     {
     "id":0,
-    "title":"Title",
-    "description": "description",
-    "text": "text"
+    "title":"Заголовок",
+    "description": "Описание",
+    "text": "Текст"
     },
     {
     "id":1,
