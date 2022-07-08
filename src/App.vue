@@ -1,5 +1,7 @@
 <template>
-  <nav class="p-3 shadow">
+<div>
+
+  <nav class="p-3 shadow sticky-top bg-white">
     <router-link to="/" class="logo">NOTES</router-link>
 
     <router-link to="/notes/new" class="btn btn-primary btn-sm ms-auto">
@@ -10,6 +12,7 @@
   <main>
     <router-view/>
   </main>
+</div>
 
 </template>
 

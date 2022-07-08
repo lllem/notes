@@ -1,22 +1,23 @@
 {
-  "notes":[
+  "notes": [
     {
-    "id":0,
-    "title":"Заголовок",
-    "description": "Описание",
-    "text": "Текст"
+      "id": 1,
+      "title": "Первый пост",
+      "description": "Описание",
+      "text": "Текст",
+      "key": "text"
     },
     {
-    "id":1,
-    "title":"Title",
-    "description": "description",
-    "text": "text"
+      "id": 3,
+      "title": "Заголовок",
+      "description": "Описание",
+      "text": "Текст"
     },
     {
-    "id":2,
-    "title":"Title",
-    "description": "description",
-    "text": "text"
+      "id": 9,
+      "title": "Третий",
+      "description": "Описание",
+      "text": "Текст"
     }
   ]
 }

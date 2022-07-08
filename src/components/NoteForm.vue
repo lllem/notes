@@ -30,8 +30,24 @@
     maxlength="50"
     ></textarea>
 
-    <div class="sticky-bottom mt-5 py-3">
-      <button  class="btn btn-outline-primary btn-sm">Сохранить</button>
+    <div class="sticky-bottom row mt-5 py-3">
+
+      <div v-if="this.note.id !== null" class="col-auto">
+        <button
+        @click.prevent="deleteNote"
+        class="btn btn-outline-danger btn-sm">
+          Удалить
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button
+        @click.prevent="saveNote"
+        class="btn btn-outline-primary btn-sm">
+          Сохранить
+        </button>
+      </div>
+
     </div>
 
   </form>
@@ -39,7 +55,7 @@
 
 <script lang="js">
 import { defineComponent } from 'vue';
-// import axios from 'axios';
+import axios from 'axios';
 
 export default defineComponent({
   name: 'NewForm',
@@ -49,6 +65,7 @@ export default defineComponent({
       type: Object,
       default() {
         return {
+          id: null,
           title: '',
           description: '',
           text: '',
@@ -66,6 +83,37 @@ export default defineComponent({
   methods: {
     fillNote() {
       this.noteEdited = this.note;
+    },
+
+    async saveNote() {
+      if (this.note.id) {
+        axios.patch(
+          `http://localhost:3000/notes/${this.note.id}`,
+          { title: this.noteEdited.title },
+        );
+
+        axios.patch(
+          `http://localhost:3000/notes/${this.note.id}`,
+          { description: this.noteEdited.description },
+        );
+
+        axios.patch(
+          `http://localhost:3000/notes/${this.note.id}`,
+          { text: this.noteEdited.text },
+        );
+      } else {
+        const res = await axios.post('http://localhost:3000/notes', this.noteEdited);
+        console.log('post', res);
+      }
+
+      this.$store.dispatch('fetchNotes');
+    },
+
+    async deleteNote() {
+      const res = await axios.delete(`http://localhost:3000/notes/${this.note.id}`);
+      console.log('delete', res);
+
+      this.$router.push('/');
     },
   },
 

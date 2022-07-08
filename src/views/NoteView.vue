@@ -18,14 +18,20 @@
 
       <p class="note__text py-2 m-0">{{ note.text }}</p>
 
-      <div class="sticky-bottom mt-5">
-        <button
-        @click="editmode = true"
-        class="btn btn-outline-primary btn-sm"
-        >
-          Редактировать
-        </button>
+      <div class="sticky-bottom row mt-5 py-3">
+        <div class="col-auto">
+          <button @click="deleteNote" class="btn btn-outline-danger btn-sm">Удалить</button>
+        </div>
+        <div class="col-auto">
+          <button
+          @click="editmode = true"
+          class="btn btn-outline-primary btn-sm"
+          >
+            Редактировать
+          </button>
+        </div>
       </div>
+
     </div>
 
     <NoteForm v-else :note="note" />
@@ -59,6 +65,15 @@ export default defineComponent({
   computed: {
     loading() {
       return this.note === {};
+    },
+  },
+
+  methods: {
+    async deleteNote() {
+      const res = await axios.delete(`http://localhost:3000/notes/${this.id}`);
+      console.log('delete', res);
+
+      this.$router.push('/');
     },
   },
 
