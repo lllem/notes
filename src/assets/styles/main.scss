@@ -1,5 +1,46 @@
 @import 'bootstrap';
 
-body {
-  backgound-color: red;
+.note {
+  .note__title,
+  .note__description,
+  .note__text {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    line-height: 1;
+    border-bottom: 2px solid #00c4ff00;
+    transition: border 0.5s ease;
+  }
+
+  .note__title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .note__description {
+    font-size: 1.5rem;
+    font-weight: normal;
+    line-height: 1;
+  }
+
+  .note__text {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  &.note_edit {
+    .note__title,
+    .note__description,
+    .note__text {
+      &:focus {
+        border-bottom: 2px solid #00c3ff;
+        transition: border 0.5s ease;
+      }
+      &:hover:not(:focus) {
+        border-bottom: 2px solid #00c4ff50;
+        transition: border 0.5s ease;
+      }
+    }
+  }
+
 }
